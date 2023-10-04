@@ -3,6 +3,7 @@ import CITIES from "../../city.json"
 import { SearchContext } from "../context/SearchContext"
 import SingleOption from "../select-form/SingleOption"
 import Select from "../select-form/Select"
+import "./FormItem.css"
 
 function FormItem({ title }) {
   const { formData, setFormData } = useContext(SearchContext)
@@ -37,14 +38,16 @@ function FormItem({ title }) {
   }
 
   return (
-    <div className="col-4">
-      <div onClick={handleFormClick}>
-        <p className="m-0">{title}</p>
-        {city && airport ? <Select city={city} airport={airport} /> : <Select />}
+    <>
+      <div className="border border-1 border-black rounded p-3 pt-4 h-100" role="button">
+        <div onClick={handleFormClick}>
+          <p className="m-0">{title}</p>
+          {city && airport ? <Select city={city} airport={airport} /> : <Select />}
+        </div>
       </div>
 
-      {isOptionsOpen && <div>{isLoading ? <div>Loading...</div> : options.map(({ id, city, airport }) => <SingleOption key={id} optionItems={{ "data-city": city, "data-airport": airport, "data-name": title, onClick: handleOptionClick }} />)}</div>}
-    </div>
+      {isOptionsOpen && <div className="option-container">{isLoading ? <div>Loading...</div> : options.map(({ id, city, airport }) => <SingleOption key={id} optionItems={{ "data-city": city, "data-airport": airport, "data-name": title, onClick: handleOptionClick }} />)}</div>}
+    </>
   )
 }
 

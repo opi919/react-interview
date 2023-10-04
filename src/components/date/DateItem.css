@@ -1,0 +1,20 @@
+#departure,
+#return {
+  display: none;
+  position: absolute;
+}
+.div-disabled {
+  pointer-events: none;
+}
+
+.react-datepicker-wrapper {
+  height: 0px !important;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] {
+  padding-top: 2px !important;
+}

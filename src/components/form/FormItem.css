@@ -1,0 +1,6 @@
+.option-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translate(30%, 100%);
+}

@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
-import CITIES from "../../city.json"
 import Menu from "../menu/Menu"
 import { SearchContext } from "../context/SearchContext"
 import FormItem from "../form/FormItem"
+import DateItem from "../date/DateItem"
+import "./SearchBox.css"
 
 export default function SearchBox() {
   const { formData, handleChange } = useContext(SearchContext)
@@ -18,8 +19,16 @@ export default function SearchBox() {
       <form>
         <Menu />
         <div className="row">
-          <FormItem title="from" />
-          <FormItem title="to" />
+          <div className="col-3 position-relative">
+            <FormItem title="from" />
+          </div>
+          <div className="col-3 position-relative">
+            <FormItem title="to" />
+          </div>
+          <div className="col-3 border border-1 border-black rounded d-flex position-relative">
+            <DateItem title="departure" />
+            <DateItem title="return" />
+          </div>
         </div>
       </form>
     </div>
