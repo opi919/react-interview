@@ -2,14 +2,8 @@ import { createContext, useState, useMemo, useEffect } from "react"
 
 export const SearchContext = createContext({
   formData: {
-    from: {
-      city: "",
-      airport: "",
-    },
-    to: {
-      city: "",
-      airport: "",
-    },
+    from: null,
+    to: null,
     minDepartureDate: "",
     departureDate: "",
     returnDate: "",
@@ -48,7 +42,11 @@ export const SearchProvider = ({ children }) => {
     returnDate: "",
     minReturnDate: getDefaultReturnDate(currentDate),
     bookingClass: "economy",
-    passengers: 1,
+    passengers: {
+      adult: 1,
+      children: 0,
+      infant: 0,
+    },
     tripType: "oneWay",
   })
 

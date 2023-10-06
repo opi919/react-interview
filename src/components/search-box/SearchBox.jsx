@@ -19,15 +19,14 @@ export default function SearchBox() {
       <form>
         <Menu />
         <div className="row">
-          <div className="col-3 position-relative">
             <FormItem title="from" />
-          </div>
-          <div className="col-3 position-relative">
             <FormItem title="to" />
-          </div>
-          <div className="col-3 border border-1 border-black rounded d-flex position-relative">
+          <div className="col-3 d-flex position-relative">
             <DateItem title="departure" />
             <DateItem title="return" />
+          </div>
+          <div className="col-3 position-relative">
+
           </div>
         </div>
       </form>

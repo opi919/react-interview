@@ -13,9 +13,11 @@ export default function DateItem({ title }) {
 
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const datePickerRef = useRef(null)
+  const [classList, setClassList] = useState("")
 
   useEffect(() => {
     setSelectedDate(defaultDate)
+    title === "departure" ? setClassList("border-end-0 rounded-start") : setClassList("border-start-0 rounded-end")
   }, [departureDate, returnDate, title])
 
   const handleDivClick = () => {
@@ -54,19 +56,19 @@ export default function DateItem({ title }) {
 
   return (
     <>
-      <div className="w-50 ps-2">
-        <div onClick={handleDivClick} role="button" className={`pt-3 h-100 ${title === "return" && tripType === "oneWay" ? "div-disabled" : ""}`}>
-          <p className="m-0">{title}</p>
-          <h5 className="m=0">
-            <big className="me-1">{handleDate().date}</big>
-            <small>
+      <div className={`w-50 ps-2 ${classList} border border-1 border-black ${isDatePickerOpen ? "active" : ""}`}>
+        <div onClick={handleDivClick} role="button" className={`py-1 ${title === "return" && tripType === "oneWay" ? "div-disabled" : ""}`}>
+          <p className="">{title}</p>
+          <h5 className="m-0">
+            {handleDate().date}
+            <small className="ms-2">
               {handleDate()?.month} {handleDate()?.year}
             </small>
           </h5>
           <small>{handleDate()?.day}</small>
         </div>
-        <DatePicker id={title} ref={datePickerRef} selected={selectedDate} onChange={handleDateChange} open={isDatePickerOpen} onClickOutside={() => setIsDatePickerOpen(false)} dateFormat="yyyy-MM-dd" minDate={title === "departure" ? minDepartureDate : minReturnDate} />
       </div>
+      <DatePicker id={title} ref={datePickerRef} selected={selectedDate} onChange={handleDateChange} open={isDatePickerOpen} onClickOutside={() => setIsDatePickerOpen(false)} dateFormat="yyyy-MM-dd" minDate={title === "departure" ? minDepartureDate : minReturnDate} />
     </>
   )
 }

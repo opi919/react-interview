@@ -38,8 +38,8 @@ function FormItem({ title }) {
   }
 
   return (
-    <>
-      <div className="border border-1 border-black rounded p-3 pt-4 h-100" role="button">
+    <div className={`col-3 p-0 border border-1 border-black rounded position-relative ${isOptionsOpen ? "active" : ""}`}>
+      <div className="p-3 py-3" role="button">
         <div onClick={handleFormClick}>
           <p className="m-0">{title}</p>
           {city && airport ? <Select city={city} airport={airport} /> : <Select />}
@@ -47,7 +47,7 @@ function FormItem({ title }) {
       </div>
 
       {isOptionsOpen && <div className="option-container">{isLoading ? <div>Loading...</div> : options.map(({ id, city, airport }) => <SingleOption key={id} optionItems={{ "data-city": city, "data-airport": airport, "data-name": title, onClick: handleOptionClick }} />)}</div>}
-    </>
+    </div>
   )
 }
 
