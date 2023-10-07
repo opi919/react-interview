@@ -22,14 +22,20 @@ const bookingClassType = [
   },
 ]
 
+const bookingMenuItems = [
+  { title: "adult", age: "12 years+" },
+  { title: "children", age: "2-12 years" },
+  { title: "infant", age: "below 2 years" },
+]
+
 export default function BookingMenu() {
   return (
     <div className="booking-menu-container">
       <div>
         <p className="booking-title mb-1">Travelers</p>
-        <BookingMenuItem menuItems={{ title: "adult", age: "12 years+" }} />
-        <BookingMenuItem menuItems={{ title: "children", age: "2-12 years" }} />
-        <BookingMenuItem menuItems={{ title: "infant", age: "below 2 years" }} />
+        {bookingMenuItems.map((menuItem) => (
+          <BookingMenuItem menuItem={menuItem} />
+        ))}
       </div>
       <div>
         <p className="class-title mt-2 mb-1">Booking class</p>

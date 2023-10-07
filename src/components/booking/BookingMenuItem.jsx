@@ -1,9 +1,9 @@
 import React, { useContext, useRef } from "react"
 import { SearchContext } from "../context/SearchContext"
 
-export default function BookingMenuItem({ menuItems }) {
+export default function BookingMenuItem({ menuItem }) {
   const { formData, setFormData, totalPassengers } = useContext(SearchContext)
-  const { title, age } = menuItems
+  const { title, age } = menuItem
 
   const handlePassenger = (e) => {
     const { type } = e.target.dataset
@@ -17,7 +17,7 @@ export default function BookingMenuItem({ menuItems }) {
               [`${title}`]: prev.passengers[`${title}`] + 1,
             },
           }))
-        : alert("maxiam 9 passengers are allowed")
+        : alert("maximum 9 passengers are allowed")
     } else if (type === "decrement") {
       if (title === "adult" && formData.passengers.adult > 1) {
         totalPassenger > 1
