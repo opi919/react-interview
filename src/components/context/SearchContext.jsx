@@ -1,17 +1,7 @@
 import { createContext, useState, useMemo, useEffect } from "react"
 
 export const SearchContext = createContext({
-  formData: {
-    from: null,
-    to: null,
-    minDepartureDate: "",
-    departureDate: "",
-    returnDate: "",
-    minReturnDate: "",
-    bookingClass: "",
-    passengers: null,
-    tripType: "",
-  },
+  formData: {},
   totalPassengers: () => {},
   setFormData: () => {},
   handleChange: () => {},
