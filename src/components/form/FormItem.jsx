@@ -38,7 +38,7 @@ function FormItem({ title }) {
   }
 
   return (
-    <div className={`col-3 p-0 border border-1 border-black rounded position-relative ${isOptionsOpen ? "active" : ""}`}>
+    <div className={`col-3 p-0 border border-1 rounded position-relative ${isOptionsOpen ? "active" : ""}`}>
       <div className="p-3 py-3" role="button">
         <div onClick={handleFormClick}>
           <p className="m-0">{title}</p>

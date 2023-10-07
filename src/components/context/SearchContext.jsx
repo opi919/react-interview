@@ -12,6 +12,7 @@ export const SearchContext = createContext({
     passengers: null,
     tripType: "",
   },
+  totalPassengers: () => {},
   setFormData: () => {},
   handleChange: () => {},
 })
@@ -69,7 +70,9 @@ export const SearchProvider = ({ children }) => {
     }))
   }
 
-  const contextValue = { formData, setFormData, handleChange, getDefaultReturnDate }
+  const totalPassengers = ({ adult, children, infant }) => adult + children + infant
+
+  const contextValue = { formData, setFormData, handleChange, totalPassengers }
 
   return <SearchContext.Provider value={contextValue}>{children}</SearchContext.Provider>
 }

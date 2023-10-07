@@ -1,5 +1,4 @@
 .disabled {
-    pointer-events: none;
-    background-color: grey;
-  }
-  
+  pointer-events: none;
+  background-color: #e5e7eb;
+}

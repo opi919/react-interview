@@ -20,7 +20,7 @@ export default function DateItem({ title }) {
     title === "departure" ? setClassList("border-end-0 rounded-start") : setClassList("border-start-0 rounded-end")
   }, [departureDate, returnDate, title])
 
-  const handleDivClick = () => {
+  const toggleDatePicker = () => {
     if (datePickerRef.current) {
       setIsDatePickerOpen(!isDatePickerOpen)
     }
@@ -38,8 +38,8 @@ export default function DateItem({ title }) {
 
   const handleDate = () => {
     if (tripType === "oneWay" && title === "return") {
-      const date = "Not Applicable"
-      const getDate = { date }
+      const notAllowed = "Not Applicable"
+      const getDate = { notAllowed }
       return getDate
     } else {
       const date = selectedDate.toLocaleString("en-US", { day: "numeric" })
@@ -56,13 +56,13 @@ export default function DateItem({ title }) {
 
   return (
     <>
-      <div className={`w-50 ps-2 ${classList} border border-1 border-black ${isDatePickerOpen ? "active" : ""}`}>
-        <div onClick={handleDivClick} role="button" className={`py-1 ${title === "return" && tripType === "oneWay" ? "div-disabled" : ""}`}>
+      <div className={`w-50 ps-3 py-2 ${classList} border border-1 ${isDatePickerOpen ? "active" : ""}`}>
+        <div onClick={toggleDatePicker} role="button" className={`py-1 ${title === "return" && tripType === "oneWay" ? "div-disabled" : ""}`}>
           <p className="">{title}</p>
           <h5 className="m-0">
             {handleDate().date}
             <small className="ms-2">
-              {handleDate()?.month} {handleDate()?.year}
+              {handleDate()?.month} {handleDate()?.year} {handleDate()?.notAllowed}
             </small>
           </h5>
           <small>{handleDate()?.day}</small>

@@ -1,0 +1,11 @@
+.increment,
+.decrement {
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
