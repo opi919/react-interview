@@ -52,7 +52,7 @@ export default function DateItem({ title }) {
     }
   }
 
-  // console.log(formData)
+  // console.log(title === "return" ? formData.returnDate : "")
 
   return (
     <>

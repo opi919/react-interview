@@ -30,17 +30,17 @@ const bookingMenuItems = [
 
 export default function BookingMenu() {
   return (
-    <div className="booking-menu-container">
+    <div className="booking-menu-container border border-1">
       <div>
         <p className="booking-title mb-1">Travelers</p>
         {bookingMenuItems.map((menuItem) => (
-          <BookingMenuItem menuItem={menuItem} />
+          <BookingMenuItem key={menuItem.title} menuItem={menuItem} />
         ))}
       </div>
       <div>
         <p className="class-title mt-2 mb-1">Booking class</p>
         {bookingClassType.map((bookingClass) => (
-          <BookingClassItem bookingClass={bookingClass} />
+          <BookingClassItem key={bookingClass.type} bookingClass={bookingClass} />
         ))}
       </div>
     </div>

@@ -4,4 +4,9 @@
 
 body {
   box-sizing: border-box;
+  background-color: #ebf0f4;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

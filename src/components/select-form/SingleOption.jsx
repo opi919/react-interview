@@ -17,7 +17,7 @@ export default function SingleOption({ optionItems }) {
     }
   }
   return (
-    <div {...optionItems} className={handleClass()} role="button">
+    <div {...optionItems} className={`single-item ${handleClass()}`} role="button">
       <div>{city}</div>
       <div>{airport}</div>
     </div>

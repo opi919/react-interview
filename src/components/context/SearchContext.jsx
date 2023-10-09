@@ -44,13 +44,15 @@ export const SearchProvider = ({ children }) => {
   useEffect(() => {
     setFormData((prev) => {
       const newReturnDate = getDefaultReturnDate(prev.departureDate)
+      const shouldUpdateReturnDate = prev.returnDate <= prev.departureDate
+
       return {
         ...prev,
-        returnDate: newReturnDate,
+        returnDate: shouldUpdateReturnDate ? newReturnDate : prev.returnDate,
         minReturnDate: newReturnDate,
       }
     })
-  }, [formData.departureDate])
+  }, [formData.departureDate, formData.tripType])
 
   const handleChange = (e) => {
     const { name, value } = e.target

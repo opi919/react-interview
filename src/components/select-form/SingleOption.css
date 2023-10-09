@@ -2,3 +2,11 @@
   pointer-events: none;
   background-color: #e5e7eb;
 }
+
+.single-item {
+  padding: 5px 10px;
+  margin-bottom: 2px;
+}
+.single-item:hover {
+  background-color: #e5e7eb;
+}

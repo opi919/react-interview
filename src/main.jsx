@@ -5,11 +5,14 @@ import "./index.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.js"
 import { SearchProvider } from "./components/context/SearchContext.jsx"
+import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <SearchProvider>
-      <App />
-    </SearchProvider>
+    <BrowserRouter>
+      <SearchProvider>
+        <App />
+      </SearchProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )
